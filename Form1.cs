@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +14,10 @@ namespace Darts
     public partial class Form1 : Form
     {
         int turn = 0;
+        int turnCount = 0;
         int numOfPlayers;
+        int[] score;
+        int multi = 1;
         
         private int getButtonValue(Button b)
         {
@@ -47,6 +51,15 @@ namespace Darts
             bt3x.Enabled = status;
         }
 
+        private void printScore()
+        {
+            string s = "Score?\n";
+            for (int i = 0; i < numOfPlayers; i++)
+            {
+                s += $"Player{i}: {score[i]}\n";
+            }
+            lbOut.Text = s;
+        }
         public Form1()
         {
             InitializeComponent();
@@ -54,10 +67,31 @@ namespace Darts
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (turnCount > 2)
+            {
+                turn++;
+                turnCount = 0;
+            }
+
+            turnCount++;
+
             Button b = (Button)sender;
             int i  = getButtonValue(b);
-            
 
+            if (i == 25 || i == 50)
+            {
+                score[turn % numOfPlayers] -= i;
+
+                multi = 1;
+                printScore();
+                return;
+            }
+
+            score[turn % numOfPlayers] -= i * multi;
+
+            multi = 1;
+
+            printScore();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -66,12 +100,19 @@ namespace Darts
         }
         private void buttonMulti_Click(object sender, EventArgs e)
         {
-
+            Button d= (Button)sender;
+            string t = d.Text;
+            if (t == "2x")
+            {
+                multi = 2;
+            }
+            else multi = 3;
         }
 
         private void buttonEnter_Click(object sender, EventArgs e)
         {
             string s = tbNumOfPlayers.Text;
+            string p = tbPoints.Text;
 
             if (!int.TryParse(s, out int num))
             {
@@ -85,9 +126,29 @@ namespace Darts
                 return;
             }
 
+            if (!int.TryParse(p, out int point))
+            {
+                lbPointsOutput.Text = "Not a num";
+                return;
+            }
+
+            if (point < 301)
+            {
+                lbPointsOutput.Text = "Wrong num";
+                return;
+            }
+
             numOfPlayers = num;
             buttonControll(true);
             btEnter.Enabled = false;
+            lbSelectionOutput.Text = "Ready to play";
+
+            score = new int[numOfPlayers];
+            for (int i = 0; i < numOfPlayers; i++)
+            {
+                score[i] = point;
+            }
+            printScore();
         }
     }
 }

@@ -56,6 +56,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btEnter = new System.Windows.Forms.Button();
             this.lbSelectionOutput = new System.Windows.Forms.Label();
+            this.bt0 = new System.Windows.Forms.Button();
+            this.lbOut = new System.Windows.Forms.Label();
+            this.tbPoints = new System.Windows.Forms.TextBox();
+            this.lbPointsOutput = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bt1
@@ -312,14 +316,14 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(236, 65);
             this.label1.TabIndex = 25;
-            this.label1.Text = "Write number of players";
+            this.label1.Text = "Write number of players and points";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btEnter
             // 
-            this.btEnter.Location = new System.Drawing.Point(450, 27);
+            this.btEnter.Location = new System.Drawing.Point(627, 27);
             this.btEnter.Name = "btEnter";
-            this.btEnter.Size = new System.Drawing.Size(94, 65);
+            this.btEnter.Size = new System.Drawing.Size(99, 93);
             this.btEnter.TabIndex = 26;
             this.btEnter.Text = "Enter";
             this.btEnter.UseVisualStyleBackColor = true;
@@ -328,16 +332,53 @@
             // lbSelectionOutput
             // 
             this.lbSelectionOutput.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.lbSelectionOutput.Location = new System.Drawing.Point(282, 80);
+            this.lbSelectionOutput.Location = new System.Drawing.Point(282, 75);
             this.lbSelectionOutput.Name = "lbSelectionOutput";
             this.lbSelectionOutput.Size = new System.Drawing.Size(153, 45);
             this.lbSelectionOutput.TabIndex = 27;
+            // 
+            // bt0
+            // 
+            this.bt0.Location = new System.Drawing.Point(40, 417);
+            this.bt0.Name = "bt0";
+            this.bt0.Size = new System.Drawing.Size(74, 74);
+            this.bt0.TabIndex = 28;
+            this.bt0.Text = "0";
+            this.bt0.UseVisualStyleBackColor = true;
+            this.bt0.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lbOut
+            // 
+            this.lbOut.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lbOut.Location = new System.Drawing.Point(40, 505);
+            this.lbOut.Name = "lbOut";
+            this.lbOut.Size = new System.Drawing.Size(433, 219);
+            this.lbOut.TabIndex = 29;
+            // 
+            // tbPoints
+            // 
+            this.tbPoints.Location = new System.Drawing.Point(458, 27);
+            this.tbPoints.Name = "tbPoints";
+            this.tbPoints.Size = new System.Drawing.Size(153, 31);
+            this.tbPoints.TabIndex = 30;
+            // 
+            // lbPointsOutput
+            // 
+            this.lbPointsOutput.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lbPointsOutput.Location = new System.Drawing.Point(458, 75);
+            this.lbPointsOutput.Name = "lbPointsOutput";
+            this.lbPointsOutput.Size = new System.Drawing.Size(153, 45);
+            this.lbPointsOutput.TabIndex = 31;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1361, 768);
+            this.Controls.Add(this.lbPointsOutput);
+            this.Controls.Add(this.tbPoints);
+            this.Controls.Add(this.lbOut);
+            this.Controls.Add(this.bt0);
             this.Controls.Add(this.lbSelectionOutput);
             this.Controls.Add(this.btEnter);
             this.Controls.Add(this.label1);
@@ -404,6 +445,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btEnter;
         private System.Windows.Forms.Label lbSelectionOutput;
+        private System.Windows.Forms.Button bt0;
+        private System.Windows.Forms.Label lbOut;
+        private System.Windows.Forms.TextBox tbPoints;
+        private System.Windows.Forms.Label lbPointsOutput;
     }
 }
 
