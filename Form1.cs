@@ -60,6 +60,16 @@ namespace Darts
             }
             lbOut.Text = s;
         }
+
+        private void printPlayer()
+        {
+            lbPlayer.Text = $"Player {turn % numOfPlayers} is on the move\n{turnCount} dart";
+        }
+
+        private bool checkOver() 
+        {
+            return true;
+        }
         public Form1()
         {
             InitializeComponent();
@@ -80,17 +90,16 @@ namespace Darts
 
             if (i == 25 || i == 50)
             {
-                score[turn % numOfPlayers] -= i;
-
                 multi = 1;
-                printScore();
-                return;
+                score[turn % numOfPlayers] -= i;
+            }
+            else
+            {
+                score[turn % numOfPlayers] -= i * multi;
             }
 
-            score[turn % numOfPlayers] -= i * multi;
-
             multi = 1;
-
+            printPlayer();
             printScore();
         }
 
@@ -148,6 +157,8 @@ namespace Darts
             {
                 score[i] = point;
             }
+
+            printPlayer();
             printScore();
         }
     }

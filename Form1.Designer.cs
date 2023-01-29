@@ -60,6 +60,7 @@
             this.lbOut = new System.Windows.Forms.Label();
             this.tbPoints = new System.Windows.Forms.TextBox();
             this.lbPointsOutput = new System.Windows.Forms.Label();
+            this.lbPlayer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bt1
@@ -370,11 +371,21 @@
             this.lbPointsOutput.Size = new System.Drawing.Size(153, 45);
             this.lbPointsOutput.TabIndex = 31;
             // 
+            // lbPlayer
+            // 
+            this.lbPlayer.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lbPlayer.Location = new System.Drawing.Point(515, 505);
+            this.lbPlayer.Name = "lbPlayer";
+            this.lbPlayer.Size = new System.Drawing.Size(341, 114);
+            this.lbPlayer.TabIndex = 32;
+            this.lbPlayer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1361, 768);
+            this.Controls.Add(this.lbPlayer);
             this.Controls.Add(this.lbPointsOutput);
             this.Controls.Add(this.tbPoints);
             this.Controls.Add(this.lbOut);
@@ -449,6 +460,7 @@
         private System.Windows.Forms.Label lbOut;
         private System.Windows.Forms.TextBox tbPoints;
         private System.Windows.Forms.Label lbPointsOutput;
+        private System.Windows.Forms.Label lbPlayer;
     }
 }
 
